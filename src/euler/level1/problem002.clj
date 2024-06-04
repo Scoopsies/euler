@@ -15,3 +15,11 @@
 
 (defn euler-2 [n]
   (reduce + (even-sequence-filter n)))
+
+(defn lazy-fib
+  ([] (lazy-fib 1 1))
+  ([n m]
+   (lazy-seq (cons n (lazy-fib m (+ n m))))))
+
+(defn fib [n]
+  (take n (lazy-fib)))
