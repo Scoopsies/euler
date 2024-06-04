@@ -21,6 +21,8 @@
       (should= 12 (sut/get-smallest-common-product (range 1 5))))
     (it "returns for 5"
       (should= 60 (sut/get-smallest-common-product (range 1 6))))
+    (it "returns for 6"
+      (should= 420 (sut/get-smallest-common-product (range 1 8))))
     (it "returns for 10"
       (should= 2520 (sut/get-smallest-common-product (range 1 11))))
     (it "returns for 20"

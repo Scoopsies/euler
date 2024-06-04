@@ -7,8 +7,10 @@
   (every? #(evenly-divisible? n %) coll))
 
 (defn get-smallest-common-product [coll]
-  (loop [result (* (first (reverse coll)) (second (reverse coll)))]
-    (if (every-evenly-divisible? result coll)
-      result
-      (recur (+ (first (reverse coll)) result)))))
+  (let [[highest-factor second-highest-factor] (reverse coll)]
+    (loop [result (* highest-factor second-highest-factor)]
+      (if (every-evenly-divisible? result coll)
+        result
+        (recur (+ highest-factor result))))))
+
 
