@@ -56,9 +56,13 @@
   (context "get-largest-palindrome-product"
     (it "gets largest palindrome product of 1 digit numbers"
       (should= 9 (sut/get-largest-palindrome-product 1)))
+
     (it "gets largest palindrome product of 2 digit numbers"
       (should= 9009 (sut/get-largest-palindrome-product 2)))
+
     (it "gets largest palindrome product of 3 digit numbers"
-      (should= 906609 (sut/get-largest-palindrome-product 3)))))
+      (should= 906609 (sut/get-largest-palindrome-product 3)))
+    )
+  )
 
 (run-specs)

@@ -15,12 +15,12 @@
 (defn sort-descending-distinct [result first-number second-number]
   (reverse (sort (distinct (conj result (* first-number second-number))))))
 
-(defn change-first-number [n first-factor second-factor]
+(defn- update-first-factor [n first-factor second-factor]
   (if (= second-factor (get-smallest-n-digit-int n))
     (dec first-factor)
     first-factor))
 
-(defn change-second-number [n first-factor second-factor]
+(defn- change-second-number [n first-factor second-factor]
   (if (= second-factor (get-smallest-n-digit-int n))
     (dec first-factor)
     (dec second-factor)))
@@ -36,7 +36,7 @@
          result []]
     (if (= first-factor second-factor (get-smallest-n-digit-int n))
       (sort-descending-distinct result first-factor second-factor)
-      (recur (change-first-number n first-factor second-factor)
+      (recur (update-first-factor n first-factor second-factor)
              (change-second-number n first-factor second-factor)
              (change-result result first-factor second-factor)))))
 

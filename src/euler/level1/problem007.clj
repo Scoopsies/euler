@@ -4,4 +4,7 @@
     [euler.math :as math]))
 
 (defn get-nth-prime [n]
-  (last (take n (filter math/prime? (iterate inc 2)))))
+  (->> (iterate inc 2)
+       (filter math/prime?)
+       (take n)
+       last))
