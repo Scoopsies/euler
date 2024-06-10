@@ -15,16 +15,16 @@
                (conj result num)
                result)))))
 
-(defn- update-result [n num result]
+(defn- check-if-prime [n num result]
   (if (factor? n num) false result))
 
 (defn prime? [n]
-  (if (even-or-2? n)
+  (if (or (= n 1) (even-or-2? n))
     false
     (loop [num 2 result true]
       (if (or (false? result) (> num (Math/sqrt n)))
         result
-        (recur (inc num) (update-result n num result))))))
+        (recur (inc num) (check-if-prime n num result))))))
 
 (defn prime-factors-of [n]
   (conj (filter prime? (odd-factors-up-to-sqrt n)) 2))
